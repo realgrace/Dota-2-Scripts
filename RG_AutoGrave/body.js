@@ -2,7 +2,7 @@
   License - GNU 3 Public
   Project - Real Grace
   Author  - Starlight & Sleid
-  Version - 0.1
+  Version - 0.01
   https://github.com/realgrace/Dota-2-Scripts
 */
 
