@@ -53,7 +53,7 @@ var RG_AutoGravecheckbox = function(){
 	
 	MyEnt = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
 	if(Entities.GetUnitName(MyEnt) != "npc_dota_hero_dazzle") {
-		Game.ScriptLogMsg('Ошибка: Выаш герой не является Dazzle', '#ff0000');
+		Game.ScriptLogMsg('Ошибка: Выша герой не является Dazzle', '#ff0000');
 		return;
 	}
 	
