@@ -27,7 +27,7 @@ function DazzleFunc() {
 			
 			if(Entities.GetMana(MyEnt) >= Abilities.GetManaCost(Entities.GetAbility(MyEnt,1))
 			&& Abilities.GetCooldownTimeRemaining(Entities.GetAbility(MyEnt,1)) == 0 
-		    && Entities.GetRangeToUnit(MyEnt,e) <= Abilities.GetCastRange(Entities.GetAbility(MyEnt,1))) {
+		        && Entities.GetRangeToUnit(MyEnt,e) <= Abilities.GetCastRange(Entities.GetAbility(MyEnt,1))) {
 				Game.ScriptLogMsg('Вешаю крест на '+Entities.GetUnitName(e), '#00ffff');
 				Game.CastTarget(MyEnt,Entities.GetAbility(MyEnt, 1),e,false);
 				block = true;
