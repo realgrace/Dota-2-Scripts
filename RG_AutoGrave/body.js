@@ -2,7 +2,7 @@
   License - GNU 3 Public
   Project - Real Grace
   Author  - Starlight & Sleid
-  Version - 0.01
+  Version - 0.03
   https://github.com/realgrace/Dota-2-Scripts
 */
 
@@ -14,32 +14,37 @@ var HighPriorityPlayers = [];
 var block = false;
 
 function DazzleFunc() {
-	if(!Entities.IsAlive(MyEnt) || Entities.IsSilenced(MyEnt) || Entities.IsStunned(MyEnt) || 
-	    Entities.IsStunned(MyEnt) || block) 
+	if(!Entities.IsAlive(MyEnt) || Entities.IsSilenced(MyEnt) || Entities.IsStunned(MyEnt) || block) 
 	{ return; }
 	
 	for(i in FEnts) {
 		var e = FEnts[i];
+		
 		if(Entities.GetHealthPercent(e) > 30 || Entities.IsMagicImmune(e) || !Entities.IsAlive(e)) { continue; }
+		
 		for(j in EEnts) {
 			if(Entities.GetRangeToUnit(e,EEnts[j]) > 1300 || !Entities.IsAlive(EEnts[j])) { continue; }
+			
+			// Проверяем, можем ли мы бросить крест
 			if(Entities.GetMana(MyEnt) >= Abilities.GetManaCost(Entities.GetAbility(MyEnt,1))
-			&& Abilities.GetCooldownTimeRemaining(Entities.GetAbility(MyEnt,1)) == 0         
+			&& Abilities.GetCooldownTimeRemaining(Entities.GetAbility(MyEnt,1)) == 0 
 		    && Entities.GetRangeToUnit(MyEnt,e) <= Abilities.GetCastRange(Entities.GetAbility(MyEnt,1))) {
-				Game.ScriptLogMsg('Вещаю крест', '#00ffff');
+				Game.ScriptLogMsg('Вешаю крест на '+Entities.GetUnitName(e), '#00ffff');
 				Game.CastTarget(MyEnt,Entities.GetAbility(MyEnt, 1),e,false);
-				block = true;
+				block = true; // Блокируем скиллы на 8 секунд
 				$.Schedule(8,function () {block = false;});
 			}
-
-			if(Entities.GetMana(MyEnt) >= Abilities.GetManaCost(Entities.GetAbility(MyEnt,2))
-			&& Abilities.GetCooldownTimeRemaining(Entities.GetAbility(MyEnt,2)) == 0         
-			&& Entities.GetRangeToUnit(MyEnt,e) <= Abilities.GetCastRange(Entities.GetAbility(MyEnt,2))) { 
-				Game.ScriptLogMsg('Лечу', '#00ffff');
-				Game.CastTarget(MyEnt,Entities.GetAbility(MyEnt, 2),e,false);
-				block = true; 
-				$.Schedule(8,function () {block = false;});
-			}
+			
+			break;
+		}
+		
+		if(Entities.GetMana(MyEnt) >= Abilities.GetManaCost(Entities.GetAbility(MyEnt,2))
+		&& Abilities.GetCooldownTimeRemaining(Entities.GetAbility(MyEnt,2)) == 0
+		&& Entities.GetRangeToUnit(MyEnt,e) <= Abilities.GetCastRange(Entities.GetAbility(MyEnt,2))) {
+			Game.ScriptLogMsg('Лечу '+Entities.GetUnitName(e), '#00ffff');
+			Game.CastTarget(MyEnt,Entities.GetAbility(MyEnt, 2),e,false);
+			block = true;
+			$.Schedule(8,function () {block = false;});
 		}
 	}
 }
