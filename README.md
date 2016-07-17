@@ -1,1 +1,1 @@
-# Dota-2-Sripts
+# Dota-2-Scripts
