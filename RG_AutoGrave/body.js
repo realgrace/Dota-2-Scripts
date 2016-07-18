@@ -100,17 +100,12 @@ var RG_AutoGravecheckbox = function(){
 function inArray(arr1,arr2) {
 	var found = false;
 	arr2.forEach( function (a) {
-		
 		arr1.forEach( function (b) {
-			
 			if(a == b) {
 				found = true;
 			}
-			
 		});
-		
 	});
-	
 	return found;
 }
 
