@@ -1,7 +1,8 @@
 ﻿/*
-  License - GNU 3 Public
+  License - Creative Commons Attribution-NoDerivatives 4.0 International License. (CC BY-ND 4.0)
   Project - Real Grace
   Author  - Starlight & Sleid
+  Script  - AutoGrave
   Version - 0.03
   https://github.com/realgrace/Dota-2-Scripts
 */
