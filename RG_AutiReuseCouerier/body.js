@@ -1,7 +1,7 @@
 ﻿﻿/*
   License - Creative Commons Attribution-NoDerivatives 4.0 International License. (CC BY-ND 4.0)
   Project - Real Grace
-  Author  - Starlight & Sleid
+  Author  - Starlight & Sleid & LalkaKaro4
   Script  - AutiReuseCouerier
   Version - 0.01
   https://github.com/realgrace/Dota-2-Scripts
