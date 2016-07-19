@@ -46,6 +46,7 @@ function DazzleFunc() {
 			block = true;
 			$.Schedule(8,function () {block = false;});
 		}
+		break;
 	}
 }
 
