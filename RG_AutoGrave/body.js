@@ -45,8 +45,8 @@ function DazzleFunc() {
 			Game.CastTarget(MyEnt,Entities.GetAbility(MyEnt, 2),e,false);
 			block = true;
 			$.Schedule(8,function () {block = false;});
+			return;
 		}
-		break;
 	}
 }
 
